@@ -69,6 +69,7 @@ class GallerySaver {
     print(url);
     http.Client _client = new http.Client();
     var fileUri = Uri.parse(url);
+    var req = await _client.get(fileUri);
     var filename = basename(fileUri.path);
     var bytes = req.bodyBytes;
     String dir = (await getTemporaryDirectory()).path;
